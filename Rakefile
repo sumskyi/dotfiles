@@ -1,17 +1,7 @@
-linkables = %w(
-  .ackrc
-  .alias
-  .gemrc
-  .git
-  .gitconfig
-  .gitignore
-  .i3status.conf
-  .irbrc
-  .pryrc
-  .rvmrc
-  .vimrc
-  .zshrc
-)
+linkables = %w(ackrc alias gemrc gitconfig gitignore i3status.conf irbrc pryrc rvmrc vimrc zshrc )
+
+desc "install all"
+task :install => [:symlink, :vim]
 
 desc "symlink config files"
 task :symlink do
@@ -21,7 +11,7 @@ task :symlink do
 
   linkables.each do |file|
     source = "#{ENV["PWD"]}/#{file}"
-    target = "#{ENV["HOME"]}/#{file}"
+    target = "#{ENV["HOME"]}/.#{file}"
 
     if File.exists?(target) || File.symlink?(target)
       unless skip_all || overwrite_all || backup_all
@@ -36,7 +26,11 @@ task :symlink do
       end
 
       FileUtils.rm_rf(target) if overwrite || overwrite_all
-      run %{ mv "$HOME/#{file}" "$HOME/#{file}.backup" } if backup || backup_all
+
+      if backup || backup_all
+        run %{ cp -L "$HOME/.#{file}" "$HOME/backup.#{file}" }
+        run %{ rm  "$HOME/.#{file}"}
+      end
     end
 
     run %{ ln -s "#{source}" "#{target}" }
@@ -45,15 +39,18 @@ task :symlink do
   message("symlink finished")
 end
 
-task :default => 'symlink'
+desc "vim stuff"
+task :vim
+
+task :default => 'install'
 
 private
 
-def run(cmd)
+def self.run(cmd)
   puts "[Running] #{cmd}"
   `#{cmd}` unless ENV['DEBUG']
 end
 
-def message(action)
+def self.message(action)
   puts "Done #{action}"
 end
