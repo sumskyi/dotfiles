@@ -1,0 +1,11 @@
+--type-set=sass=.sass
+--type-set=scss=.scss
+--type-set=haml=.haml
+--type-set=coffee=.coffee
+--type-set=ejs=.ejs
+--type-add=ruby=.haml
+--type-add=js=.javascript
+--ignore-dir=target/
+--ignore-dir=.rsync_cache/
+--ignore-dir=coverage/
+--ignore-dir=tmp/
