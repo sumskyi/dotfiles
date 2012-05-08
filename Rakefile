@@ -40,17 +40,28 @@ task :symlink do
 end
 
 desc "vim stuff"
-task :vim
+task :vim do
+  init_vundle
+end
 
 task :default => 'install'
 
-private
 
-def self.run(cmd)
-  puts "[Running] #{cmd}"
-  `#{cmd}` unless ENV['DEBUG']
-end
+class << self
+  private
+  def run(cmd)
+    puts "[Running] #{cmd}"
+    `#{cmd}` unless ENV['DEBUG']
+  end
 
-def self.message(action)
-  puts "Done #{action}"
+  def message(action)
+    puts "Done #{action}"
+  end
+
+  def init_vundle
+    unless File.exists?("#{ENV["HOME"]}/.vim/bundle/vundle")
+      run %{mkdir -p ~/.vim/bundle}
+      run %{git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle}
+    end
+  end
 end
