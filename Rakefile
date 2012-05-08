@@ -41,7 +41,15 @@ end
 
 desc "vim stuff"
 task :vim do
-  init_vundle
+  Rake::Task['init_vundle'].invoke
+end
+
+desc "init vundle"
+task :init_vundle do
+  unless File.exists?("#{ENV["HOME"]}/.vim/bundle/vundle")
+    run %{mkdir -p ~/.vim/bundle}
+    run %{git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle}
+  end
 end
 
 task :default => 'install'
@@ -58,10 +66,4 @@ class << self
     puts "Done #{action}"
   end
 
-  def init_vundle
-    unless File.exists?("#{ENV["HOME"]}/.vim/bundle/vundle")
-      run %{mkdir -p ~/.vim/bundle}
-      run %{git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle}
-    end
-  end
 end

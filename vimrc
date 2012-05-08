@@ -2,7 +2,55 @@ set nocompatible
 
 filetype off
 
-call pathogen#runtime_append_all_bundles()
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vundle begin
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" github:
+Bundle 'mileszs/ack.vim'
+Bundle 'vim-scripts/apidock.vim'
+Bundle 'gregsexton/gitv'
+Bundle 'scrooloose/nerdtree'
+Bundle 'csexton/rvm.vim'
+Bundle 'sumskyi/snipmate-snippets'
+Bundle 'scrooloose/syntastic'
+Bundle 'godlygeek/tabular'
+Bundle 'tomtom/tlib_vim'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'skwp/vim-colors-solarized'
+Bundle 'gerardc/vim-padrino'
+Bundle 'garbas/vim-snipmate'
+
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
+
+Bundle 'vim-ruby/vim-ruby'
+
+" vimscripts repos
+Bundle 'bufexplorer.zip'
+Bundle 'Color-Sampler-Pack'
+Bundle 'taglist.vim'
+Bundle 'L9'
+
+" " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vundle end
+
+" call pathogen#runtime_append_all_bundles()
 
 syntax on " Enable syntax highlighting
 filetype plugin indent on " Enable filetype-specific indenting and plugins
@@ -14,8 +62,8 @@ set ruler
 set statusline=%f       "tail of the filename
 
 "Git
-"set statusline+=%{fugitive#statusline()}
-set statusline+=[%{GitBranch()}]
+set statusline+=%{fugitive#statusline()}
+"set statusline+=[%{GitBranch()}]
 
 "RVM
 set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
