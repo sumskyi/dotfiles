@@ -27,6 +27,7 @@
     lg = log -p
     re = checkout HEAD
     ch = cherry-pick
+    cs = branch --contains
 [user]
     name = vlad
     email = sumskyi@gmail.com

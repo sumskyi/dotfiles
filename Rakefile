@@ -1,4 +1,4 @@
-linkables = %w(ackrc alias gemrc gitconfig gitignore i3status.conf irbrc pryrc rvmrc vimrc zshrc )
+linkables = %w(ackrc alias gemrc gitconfig gitignore i3status.conf irbrc profile pryrc rvmrc vimrc zshrc )
 
 desc "install all"
 task :install => [:symlink, :vim]

@@ -33,7 +33,8 @@ plugins=(bundler gem git heroku history-substring-search node npm rails3 rake rv
 
 source $ZSH/oh-my-zsh.sh
 
-source ~/.rvm/scripts/rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM.
+
 
 # Customize to your needs...
 export PATH=/home/vlad/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games

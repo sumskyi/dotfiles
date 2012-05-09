@@ -2,7 +2,7 @@ require 'rubygems'
 
 if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
   begin
-    $LOAD_PATH.concat Dir.glob('/home/vlad/.rvm/gems/ruby-1.9.3-p125@global/gems/*/lib') if RUBY_VERSION =~ /1.9.3/ # brutal hardcode
+    $LOAD_PATH.concat Dir.glob('/home/vlad/.rvm/gems/ruby-1.9.3-p194@global/gems/*/lib') if RUBY_VERSION =~ /1.9.3/ # brutal hardcode
 
     require 'rvm'
     if defined?(::Bundler)
@@ -111,5 +111,3 @@ def time(times = 1)
   Benchmark.bm { |x| x.report { times.times { ret = yield } } }
   ret
 end
-
-
