@@ -33,3 +33,5 @@
     email = sumskyi@gmail.com
 [http]
     sslVerify = false
+[branch "master"]
+    rebase = true
