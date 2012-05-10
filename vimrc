@@ -47,6 +47,7 @@ Bundle 'bufexplorer.zip'
 Bundle 'Color-Sampler-Pack'
 Bundle 'taglist.vim'
 Bundle 'L9'
+Bundle 'ctrlp.vim'
 
 " " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vundle end
 
@@ -171,9 +172,17 @@ inoremap <C-L> <C-O>:nohls<CR>
 " source ~/.vim/vimrc
 
 nnoremap <c-p> :NERDTreeToggle<CR>
-nnoremap <c-f> :FufFile<CR>
-nnoremap <c-b> :FufBuffer<CR>
-nnoremap <c-t> :FufTaggedFile<CR>
+
+let g:ctrlp_map = '<c-f>'
+let g:ctrlp_working_path_mode = 2
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|vendor$'
+
+"nnoremap <c-f> :FufFile<CR>
+nnoremap <c-f> :CtrlP<CR>
+"nnoremap <c-b> :FufBuffer<CR>
+nnoremap <c-b> :CtrlPBuffer<CR>
+
+"nnoremap <c-t> :FufTaggedFile<CR>
 
 lang en_US.UTF-8
 
