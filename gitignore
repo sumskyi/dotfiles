@@ -40,3 +40,4 @@ doc/
 
 *.swp
 .idea/*
+vendor/ruby/*
