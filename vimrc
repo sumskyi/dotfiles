@@ -48,6 +48,7 @@ Bundle 'Color-Sampler-Pack'
 Bundle 'taglist.vim'
 Bundle 'L9'
 Bundle 'ctrlp.vim'
+Bundle 'matchit.zip'
 
 " " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vundle end
 
