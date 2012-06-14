@@ -16,6 +16,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/apidock.vim'
 Bundle 'gregsexton/gitv'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'csexton/rvm.vim'
 Bundle 'sumskyi/snipmate-snippets'
 Bundle 'scrooloose/syntastic'
@@ -24,7 +25,7 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'skwp/vim-colors-solarized'
-Bundle 'gerardc/vim-padrino'
+Bundle 'spllr/vim-padrino'
 Bundle 'garbas/vim-snipmate'
 
 Bundle 'tpope/vim-fugitive'
@@ -209,3 +210,4 @@ set foldmethod=syntax
 set nofoldenable
 
 set colorcolumn=80
+

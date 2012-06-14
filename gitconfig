@@ -35,3 +35,5 @@
     sslVerify = false
 [branch "master"]
     rebase = true
+[credential]
+	helper = cache
