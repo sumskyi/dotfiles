@@ -24,7 +24,7 @@
     br = branch
     co = checkout
     df = diff
-    lg = log -p
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     re = checkout HEAD
     ch = cherry-pick
     cs = branch --contains
