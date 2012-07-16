@@ -1,4 +1,4 @@
-export TERMINAL=xfce4-terminal
+export TERMINAL=terminal
 export EDITOR=vim
 
 # if running bash
