@@ -1,4 +1,4 @@
-linkables = %w(ackrc alias gemrc gitconfig gitignore i3status.conf irbrc profile pryrc rvmrc vimrc zshrc )
+linkables = %w(ackrc alias gemrc gitconfig gitignore i3status.conf irbrc mailcap profile pryrc rvmrc vimrc zshrc )
 
 desc "install all"
 task :install => [:symlink, :vim]
@@ -12,6 +12,7 @@ task :symlink do
   linkables.each do |file|
     source = "#{ENV["PWD"]}/#{file}"
     target = "#{ENV["HOME"]}/.#{file}"
+    skip = false
 
     if File.exists?(target) || File.symlink?(target)
       unless skip_all || overwrite_all || backup_all
@@ -21,7 +22,10 @@ task :symlink do
         when 'b' then backup = true
         when 'O' then overwrite_all = true
         when 'B' then backup_all = true
-        when 'S' then skip_all = true
+        when 'S' then
+          skip_all = true
+          skip = true
+        when 's' then skip = true
         end
       end
 
@@ -33,7 +37,8 @@ task :symlink do
       end
     end
 
-    run %{ ln -s "#{source}" "#{target}" }
+
+    run %{ ln -s "#{source}" "#{target}" } unless skip or skip_all
   end
 
   message("symlink finished")
