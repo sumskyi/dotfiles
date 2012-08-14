@@ -51,6 +51,7 @@ Bundle 'L9'
 Bundle 'ctrlp.vim'
 Bundle 'matchit.zip'
 Bundle 'Puppet-Syntax-Highlighting'
+Bundle 'Tagbar'
 
 " " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vundle end
 
@@ -154,7 +155,12 @@ autocmd FileType javascript set shiftwidth=4 softtabstop=4 tabstop=4 smarttab
 au BufNewFile,BufRead *.rabl set filetype=ruby
 au BufNewFile,BufRead *.yajl set filetype=ruby
 "au BufNewFile,BufRead *.rb setlocal filetype=ruby-rails.ruby syntax=ruby
-"au BufNewFile,BufRead *_spec.rb setlocal filetype=ruby-rspec.ruby syntax=ruby
+au BufNewFile,BufRead *_spec.rb setlocal filetype=ruby-rspec syntax=ruby
+
+let g:snipMate = {}
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails'
+let g:snipMate.scope_aliases['ruby-rspec'] = 'ruby,ruby-rspec'
 
 :se nu
 
@@ -175,6 +181,7 @@ inoremap <C-L> <C-O>:nohls<CR>
 " source ~/.vim/vimrc
 
 nnoremap <c-p> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 
 let g:ctrlp_map = '<c-f>'
 let g:ctrlp_working_path_mode = 2
