@@ -27,6 +27,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'skwp/vim-colors-solarized'
 Bundle 'spllr/vim-padrino'
 Bundle 'garbas/vim-snipmate'
+"Bundle 'roman/golden-ratio'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-bundler'
@@ -182,6 +183,9 @@ inoremap <C-L> <C-O>:nohls<CR>
 
 nnoremap <c-p> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
+
+"let g:golden_ratio_autocommand = 0
+"nnoremap <F7> :GoldenRatioToggle<CR>
 
 let g:ctrlp_map = '<c-f>'
 let g:ctrlp_working_path_mode = 2
