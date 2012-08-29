@@ -156,7 +156,7 @@ autocmd FileType javascript set shiftwidth=4 softtabstop=4 tabstop=4 smarttab
 au BufNewFile,BufRead *.rabl set filetype=ruby
 au BufNewFile,BufRead *.yajl set filetype=ruby
 "au BufNewFile,BufRead *.rb setlocal filetype=ruby-rails.ruby syntax=ruby
-au BufNewFile,BufRead *_spec.rb setlocal filetype=ruby-rspec syntax=ruby
+au BufNewFile,BufRead *_spec.rb setlocal filetype=ruby-rspec.ruby syntax=ruby
 
 let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
