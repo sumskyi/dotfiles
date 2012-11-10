@@ -157,6 +157,8 @@ au BufNewFile,BufRead *.rabl set filetype=ruby
 au BufNewFile,BufRead *.yajl set filetype=ruby
 "au BufNewFile,BufRead *.rb setlocal filetype=ruby-rails.ruby syntax=ruby
 au BufNewFile,BufRead *_spec.rb setlocal filetype=ruby-rspec.ruby syntax=ruby
+"au BufNewFile,BufRead *_spec.rb setlocal filetype=ruby-rspec syntax=ruby
+au BufNewFile,BufRead *.hamljs set filetype=haml
 
 let g:snipMate = {}
 let g:snipMate.scope_aliases = {}

@@ -43,3 +43,4 @@ doc/
 *.swp
 .idea/*
 vendor/ruby/*
+script/tmux

@@ -13,3 +13,7 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+if [ -d "/usr/local/heroku/bin" ]; then
+    PATH="/usr/local/heroku/bin:$PATH"
+fi
