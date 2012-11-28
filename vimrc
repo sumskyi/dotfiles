@@ -27,6 +27,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'skwp/vim-colors-solarized'
 Bundle 'spllr/vim-padrino'
 Bundle 'garbas/vim-snipmate'
+Bundle 'scala/scala-dist', { 'rtp': 'tool-support/src/vim/' }
 "Bundle 'roman/golden-ratio'
 
 Bundle 'tpope/vim-fugitive'
