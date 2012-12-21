@@ -29,7 +29,7 @@ ZSH_THEME="candy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler gem git git-flow heroku history-substring-search node npm rails3 rake rvm)
+plugins=(bundler gem git git-flow heroku node npm rails3 rake rvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -38,7 +38,11 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Customize to your needs...
-export PATH=/home/vlad/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+export PATH=/home/vlad/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/heroku/bin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH="/home/vlad/.rvm/gems/ruby-1.9.3-p194/bin:$PATH"
+export RBXOPT=-X19
+
+
+export TERMINAL=terminal

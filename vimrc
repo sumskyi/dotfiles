@@ -28,7 +28,6 @@ Bundle 'skwp/vim-colors-solarized'
 Bundle 'spllr/vim-padrino'
 Bundle 'garbas/vim-snipmate'
 Bundle 'scala/scala-dist', { 'rtp': 'tool-support/src/vim/' }
-"Bundle 'roman/golden-ratio'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-bundler'
@@ -47,7 +46,7 @@ Bundle 'vim-ruby/vim-ruby'
 
 " vimscripts repos
 Bundle 'bufexplorer.zip'
-Bundle 'Color-Sampler-Pack'
+Bundle 'Colour-Sampler-Pack'
 Bundle 'taglist.vim'
 Bundle 'L9'
 Bundle 'ctrlp.vim'

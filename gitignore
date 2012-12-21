@@ -44,3 +44,5 @@ doc/
 .idea/*
 vendor/ruby/*
 script/tmux
+
+tags
