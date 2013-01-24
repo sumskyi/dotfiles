@@ -36,13 +36,5 @@ source $ZSH/oh-my-zsh.sh
 [[ -s "$HOME/.alias" ]] && . "$HOME/.alias"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM.
 
-
-# Customize to your needs...
-export PATH=/home/vlad/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/heroku/bin
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH="/home/vlad/.rvm/gems/ruby-1.9.3-p194/bin:$PATH"
 export RBXOPT=-X19
-
-
 export TERMINAL=terminal
