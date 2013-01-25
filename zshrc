@@ -36,6 +36,7 @@ source $ZSH/oh-my-zsh.sh
 [[ -s "$HOME/.alias" ]] && . "$HOME/.alias"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM.
 
+export PATH="/usr/local/heroku/bin:$PATH"
 
 export RBXOPT=-X19
 export TERMINAL=terminal
