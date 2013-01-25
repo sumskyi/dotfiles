@@ -14,6 +14,7 @@ Bundle 'gmarik/vundle'
 " github:
 Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/apidock.vim'
+Bundle 'sumskyi/vim-ruby-doc'
 Bundle 'gregsexton/gitv'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -224,3 +225,4 @@ set nofoldenable
 
 set colorcolumn=80
 
+let g:ruby_doc_ruby_search_host='http://apidock.com/ruby/'
