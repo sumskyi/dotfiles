@@ -34,9 +34,10 @@ plugins=(bundler gem git git-flow heroku node npm rails3 rake rvm)
 source $ZSH/oh-my-zsh.sh
 
 [[ -s "$HOME/.alias" ]] && . "$HOME/.alias"
+unset RUBYOPT
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM.
 
 export PATH="/usr/local/heroku/bin:$PATH"
 
 export RBXOPT=-X19
-export TERMINAL=terminal
+export TERMINAL=gnome-terminal
