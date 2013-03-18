@@ -17,3 +17,5 @@ fi
 if [ -d "/usr/local/heroku/bin" ]; then
     PATH="/usr/local/heroku/bin:$PATH"
 fi
+
+[ -z "$TMUX" ] && export TERM=xterm-256color
