@@ -18,7 +18,6 @@ Bundle 'sumskyi/vim-ruby-doc'
 Bundle 'gregsexton/gitv'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'csexton/rvm.vim'
 Bundle 'sumskyi/snipmate-snippets'
 Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
@@ -30,6 +29,7 @@ Bundle 'spllr/vim-padrino'
 Bundle 'garbas/vim-snipmate'
 Bundle 'scala/scala-dist', { 'rtp': 'tool-support/src/vim/' }
 
+Bundle 'tpope/vim-rvm'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-cucumber'
@@ -42,6 +42,7 @@ Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
+"Bundle 'tpope/vim-dispatch'
 
 Bundle 'vim-ruby/vim-ruby'
 

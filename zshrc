@@ -39,6 +39,7 @@ unset RUBYOPT
 
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/home/vlad/local/bin:$PATH"
+export PATH="/home/vlad/bin/sbt/bin:$PATH"
 
 export RBXOPT=-X19
 export TERMINAL=gnome-terminal
