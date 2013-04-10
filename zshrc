@@ -37,23 +37,16 @@ source $ZSH/oh-my-zsh.sh
 unset RUBYOPT
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM.
 
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/home/vlad/local/bin:$PATH"
-export PATH="/home/vlad/bin/sbt/bin:$PATH"
+PATH="/opt/oracle-jdk-bin-1.7.0.17/bin:$PATH"
+PATH="/usr/local/heroku/bin:$PATH"
+PATH="/home/vlad/local/bin:$PATH"
+PATH="/home/vlad/bin:$PATH"
+PATH="/home/vlad/bin/sbt/bin:$PATH"
+PATH="/home/vlad/tmp/Android/ICSRoot-Linux-1.1/adt-bundle-linux-x86_64-20130219/sdk/platform-tools:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export RBXOPT=-X19
 export TERMINAL=gnome-terminal
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-#export MANPAGER=less
-#export LESS_TERMCAP_mb=$'\E[01;31m'      # begin blinking
-#export LESS_TERMCAP_md=$'\E[01;31m'      # begin bold
-#export LESS_TERMCAP_me=$'\E[0m'          # end mode
-#export LESS_TERMCAP_se=$'\E[0m'          # end standout-mode
-#export LESS_TERMCAP_so=$'\E[01;44;33m'   # begin standout-mode - info box
-#export LESS_TERMCAP_ue=$'\E[0m'          # end underline
-#export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
-
+export RACK_ENV=development
 
 [ -z "$TMUX" ] && export TERM=xterm-256color
