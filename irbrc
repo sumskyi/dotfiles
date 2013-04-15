@@ -2,7 +2,7 @@ require 'rubygems'
 
 if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
   begin
-    $LOAD_PATH.concat Dir.glob('/home/vlad/.rvm/gems/ruby-1.9.3-p327@global/gems/*/lib') if RUBY_VERSION =~ /1.9.3/ # brutal hardcode
+    $LOAD_PATH.concat Dir.glob('/home/vlad/.rvm/gems/ruby-1.9.3-p392@global/gems/*/lib') if RUBY_VERSION =~ /1.9.3/ # brutal hardcode
 
     #require 'rvm'
     if defined?(::Bundler)
