@@ -39,3 +39,5 @@
 	helper = cache
 [pull]
 	rebase = true
+[push]
+	default = simple
