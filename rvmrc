@@ -1,4 +1,4 @@
-rvm_configure_env=(CFLAGS=-O3)
+rvm_configure_env=(CFLAGS="-march=native -O3")
 
 export rvm_pretty_print_flag=1
 export rvm_trust_rvmrcs_flag=1
