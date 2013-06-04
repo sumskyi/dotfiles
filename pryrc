@@ -27,3 +27,5 @@ end
 
 # fix for NoMethodError: undefined method `reload!' for main:Object
 include Rails::ConsoleMethods if defined? Rails
+
+Pry.config.theme = "solarized"

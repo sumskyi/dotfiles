@@ -182,6 +182,8 @@ nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
 
 
+map <C-A> <C-W>_
+
 " source ~/.vim/vimrc
 
 nnoremap <c-p> :NERDTreeToggle<CR>
