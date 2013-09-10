@@ -1,3 +1,10 @@
+#
+# pry
+# pry-coolline
+# pry-doc
+# pry-remote
+# pry-theme
+#
 Pry.config.editor = "gvim --remote-silent"
 
 Pry.hooks.add_hook(:after_session, :say_bye) do
