@@ -19,3 +19,5 @@ if [ -d "/usr/local/heroku/bin" ]; then
 fi
 
 [ -z "$TMUX" ] && export TERM=xterm-256color
+
+xset -b
