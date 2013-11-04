@@ -52,3 +52,5 @@ export RACK_ENV=development
 [ -z "$TMUX" ] && export TERM=xterm-256color
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 export EDITOR=vim
+
+alias sml="SMLNJ_HOME=/usr/lib/smlnj/ sml"
