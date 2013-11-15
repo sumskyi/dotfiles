@@ -27,6 +27,7 @@ Bundle 'skwp/vim-colors-solarized'
 Bundle 'spllr/vim-padrino'
 Bundle 'SirVer/ultisnips'
 Bundle 'scala/scala-dist', { 'rtp': 'tool-support/src/vim/' }
+Bundle 'wlangstroth/vim-racket'
 
 Bundle 'tpope/vim-rvm'
 Bundle 'tpope/vim-fugitive'
