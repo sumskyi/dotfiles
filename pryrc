@@ -35,4 +35,10 @@ end
 # fix for NoMethodError: undefined method `reload!' for main:Object
 include Rails::ConsoleMethods if defined? Rails
 
+if defined? ActiveRecord::Base
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+end
+
 Pry.config.theme = "solarized"
+
+Pry.config.coolline_paren_matching = false

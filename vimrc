@@ -52,7 +52,7 @@ Bundle 'taglist.vim'
 Bundle 'L9'
 Bundle 'ctrlp.vim'
 Bundle 'matchit.zip'
-Bundle 'Puppet-Syntax-Highlighting'
+" Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'Tagbar'
 
 " " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vundle end

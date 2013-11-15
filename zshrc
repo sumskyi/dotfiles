@@ -42,7 +42,8 @@ PATH="/usr/local/heroku/bin:$PATH"
 PATH="/home/vlad/local/bin:$PATH"
 PATH="/home/vlad/bin:$PATH"
 PATH="/home/vlad/bin/sbt/bin:$PATH"
-PATH="/home/vlad/tmp/Android/ICSRoot-Linux-1.1/adt-bundle-linux-x86_64-20130219/sdk/platform-tools:$PATH"
+PATH="/home/vlad/adt-bundle/sdk/platform-tools:$PATH"
+PATH="/home/vlad/adt-bundle/sdk/tools:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export RBXOPT=-X19
