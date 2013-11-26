@@ -1,0 +1,3 @@
+:nnoremap <F9> :execute '!bin/test ' . substitute(substitute(expand("%"), 'app/', 'spec/', 'g'), '.rb', '_spec.rb', 'g')<CR>
+
+:nnoremap <F10> :execute '!bin/test ' expand("%").':'.line('.')<CR>
