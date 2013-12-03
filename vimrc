@@ -13,7 +13,6 @@ Bundle 'gmarik/vundle'
 
 " github:
 Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
 Bundle 'vim-scripts/apidock.vim'
 Bundle 'sumskyi/vim-ruby-doc'
 Bundle 'gregsexton/gitv'
