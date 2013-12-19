@@ -232,8 +232,10 @@ set colorcolumn=80
 let g:ruby_doc_ruby_search_host='http://apidock.com/ruby/'
 
 
-
 if filereadable(expand("~/.vimrc.after"))
   source ~/.vimrc.after
 endif
 
+if filereadable(expand("~/.vimrc.ocaml"))
+  source ~/.vimrc.ocaml
+endif
