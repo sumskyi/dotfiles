@@ -33,7 +33,9 @@ Pry.config.print = Proc.new do |output, value|
 end
 
 # fix for NoMethodError: undefined method `reload!' for main:Object
-include Rails::ConsoleMethods if defined? Rails
+if defined? Rails
+  include Rails::ConsoleMethods if defined?(Rails::ConsoleMethods)
+end
 
 if defined? ActiveRecord::Base
   ActiveRecord::Base.logger = Logger.new(STDOUT)

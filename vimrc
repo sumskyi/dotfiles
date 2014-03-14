@@ -231,6 +231,8 @@ set colorcolumn=80
 
 let g:ruby_doc_ruby_search_host='http://apidock.com/ruby/'
 
+set backupdir=~/tmp,.
+set directory=~/tmp,.
 
 if filereadable(expand("~/.vimrc.after"))
   source ~/.vimrc.after
