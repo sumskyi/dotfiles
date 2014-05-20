@@ -31,7 +31,6 @@ Bundle 'scala/scala-dist', { 'rtp': 'tool-support/src/vim/' }
 Bundle 'wlangstroth/vim-racket'
 
 Bundle 'tpope/vim-rvm'
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-endwise'
@@ -47,6 +46,8 @@ Bundle 'tpope/vim-unimpaired'
 
 Bundle 'vim-ruby/vim-ruby'
 
+Bundle 'bling/vim-airline'
+
 " vimscripts repos
 Bundle 'bufexplorer.zip'
 Bundle 'Colour-Sampler-Pack'
@@ -56,6 +57,8 @@ Bundle 'ctrlp.vim'
 Bundle 'matchit.zip'
 " Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'Tagbar'
+
+Bundle 'ZoomWin'
 
 " " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vundle end
 
@@ -68,14 +71,14 @@ set ruler
 "set cmdheight=2
 
 "statusline setup
-set statusline=%f       "tail of the filename
+""    set statusline=%f       "tail of the filename
 
 "Git
-set statusline+=%{fugitive#statusline()}
+""    set statusline+=%{fugitive#statusline()}
 "set statusline+=[%{GitBranch()}]
 
 "RVM
-set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
+""    set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
 
 "display a warning if fileformat isnt unix
 "set statusline+=%#warningmsg#
@@ -110,13 +113,13 @@ set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
 "set statusline+=%{&paste?'[paste]':''}
 "set statusline+=%*
 
-set statusline+=%= "left/right separator
+""    set statusline+=%= "left/right separator
 
 "set statusline+=%{StatuslineCurrentHighlight()}\ \ "current highlight
 
-set statusline+=%c, "cursor column
-set statusline+=%l/%L "cursor line/total lines
-set statusline+=\ %P "percent through file
+"set     statusline+=%c, "cursor column
+"set     statusline+=%l/%L "cursor line/total lines
+"set     statusline+=\ %P "percent through file
 set laststatus=2
 
 "turn off needless toolbar on gvim/mvim

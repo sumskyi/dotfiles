@@ -1,3 +1,4 @@
+gem-wrappers
 rubygems-bundler
 bundler
 rake
@@ -16,4 +17,4 @@ pry-syntax-hacks
 pry-theme
 
 metric_fu
-
+tmuxinator
