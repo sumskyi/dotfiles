@@ -127,7 +127,7 @@ set laststatus=2
 
 set autoindent
 
-set gfn=Misc\ Fixed\ 11
+set gfn=Misc\ Fixed\ 12
 
 if has("gui_running")
     "colorscheme darkblue2
