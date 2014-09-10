@@ -58,7 +58,7 @@ Bundle 'matchit.zip'
 " Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'Tagbar'
 
-Bundle 'ZoomWin'
+Bundle 'dr-chip-vim-scripts/ZoomWin'
 
 " " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vundle end
 
@@ -205,6 +205,7 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|vendor$'
 nnoremap <c-f> :CtrlP<CR>
 "nnoremap <c-b> :FufBuffer<CR>
 nnoremap <c-b> :CtrlPBuffer<CR>
+nnoremap <c-t> :CtrlPTag<CR>
 
 "nnoremap <c-t> :FufTaggedFile<CR>
 

@@ -28,6 +28,7 @@
     re = checkout HEAD
     ch = cherry-pick
     cs = branch --contains
+    unstage = reset --
 [user]
     name = vlad
     email = sumskyi@gmail.com

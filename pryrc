@@ -28,8 +28,14 @@ end
 
 Hirb.enable
 
-Pry.config.print = Proc.new do |output, value|
-  Hirb::View.view_or_page_output(value) || Pry::DEFAULT_PRINT.call(output, value)
+#Pry.config.print = Proc.new do |output, value|
+#  Hirb::View.view_or_page_output(value) || Pry::DEFAULT_PRINT.call(output, value)
+#end
+
+old_print = Pry.config.print
+
+Pry.config.print = Proc.new do |*args|
+ Hirb::View.view_or_page_output(args[1]) || old_print.call(*args)
 end
 
 # fix for NoMethodError: undefined method `reload!' for main:Object
