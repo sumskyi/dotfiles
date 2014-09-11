@@ -18,6 +18,7 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 config/database.yml
+doc/*
 
 # ruby:
 *.gem
@@ -47,3 +48,6 @@ tags
 
 compiled/
 *.*~
+
+.ruby-gemset
+.ruby-version

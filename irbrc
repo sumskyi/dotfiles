@@ -4,7 +4,11 @@ if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
   begin
 
     # this enables global gems when using local gemset with bundler
-    $LOAD_PATH.concat Dir.glob("#{ENV['HOME']}/.rvm/gems/ruby-#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}@global/gems/*/lib")
+    if RUBY_REVISION == 45877
+      $LOAD_PATH.concat Dir.glob("#{ENV['HOME']}/.rvm/gems/ruby-#{RUBY_VERSION}@global/gems/*/lib")
+    else
+      $LOAD_PATH.concat Dir.glob("#{ENV['HOME']}/.rvm/gems/ruby-#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}@global/gems/*/lib")
+    end
 
     #require 'rvm'
     if defined?(::Bundler)
