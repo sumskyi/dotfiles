@@ -1,0 +1,198 @@
+#!/bin/bash
+
+# -- Lightscript v 0.3.7
+#
+#	Created by Fredrik Haikarainen
+#
+#	Do whatever you want with this script as long as you do
+#	not alter the first 10 lines.
+#
+
+version="0.3.7"
+
+echo "LightScript $version - Fredrik Haikarainen"
+echo ""
+
+# -- Functions
+
+# Prints usage
+function usage(){
+	echo "Usage: light <brightness>[operator]"
+	echo "Where..
+	<brightness>	- is wanted brightness in percent
+	[operator]	- is an optional operator(+ or -) to dynamically change brightness"
+	echo ""
+}
+
+# Checks if value is integer
+function not_integer() {
+    s=$(echo $1 | tr -d 0-9)
+    if [[ -z "$s" ]]; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+# -- Colouring
+cend="\e[00m"
+cred="\e[01;31m"
+cyel="\e[01;33m"
+cgre="\e[01;32m"
+cblu="\e[01;34m"
+cwarn="$cyel\0Warning:$cend"
+cerr="$cred\0Error:$cend"
+
+# -- Checks
+
+
+# We need 1 argument, and 1 argument only
+if [[ $# != 1 ]]; then
+	usage
+	exit
+fi
+
+# Set brightness from input
+brightness=$1
+doop=0
+if not_integer $brightness; then
+
+	last=$(expr substr "$brightness" ${#brightness} 1)
+	rest=$(expr substr "$brightness" 1 $((${#brightness}-1)) )
+
+	if [[ "$last" != "+" && "$last" != "-" ]]; then
+		usage
+		exit
+	fi
+
+	if not_integer $rest; then
+		usage
+		exit
+	fi
+	
+	operator="$last"
+	obrightness="$rest"
+	
+	doop=1
+fi
+
+# Set minimum brightness in percent
+mincap=5
+
+if [[ -f /etc/lightscript/minlight ]]; then
+	mincap=$(cat /etc/lightscript/minlight)
+else
+	echo -e "$cwarn /etc/lightscript/minlight: No such file, using 5 as minimum."
+fi
+
+if ((doop == 0)); then
+	# Make sure brightness stays within bounds
+	if (( $brightness > 100 )); then
+		echo -e "$cerr Percent can never be higher than 100."
+		exit
+	fi
+
+	if (( $brightness < $mincap )); then
+		echo -e "$cerr Brightness is below minimum cap of $mincap%"
+		exit
+	fi
+fi
+
+# -- All ok? GO
+
+# Get the current lights and choose the one with the highest precision
+echo "Fetching controllers.."
+lights=(/sys/class/backlight/*/)
+
+if (( ${#lights[@]} < 1 )); then
+	echo -e "$cerr No brightness-controllers found!"
+	exit
+fi
+
+foundmax=false
+bestlight=""
+maxlight=0
+
+for light in "${lights[@]}"; do
+	if [[ -f "$light/max_brightness" ]]; then
+		cmaxlight=$(cat $light/max_brightness)
+		ccut=$(echo $light | cut -d '/' -f5)
+		echo -e "\tFound $cblu$ccut$cend ($cmaxlight)"
+		foundmax=true
+		if (( $cmaxlight > $maxlight )); then
+			maxlight=$cmaxlight
+			bestlight=$light
+		fi
+	else
+		echo -e "$cwarn No max_brightness-file found for controller \"$light\", ignoring.."
+	fi
+done
+
+echo ""
+
+if [[ $foundmax != true ]]; then
+	echo -e "$cerr No max_brightness found at all, although controllers where found. Check your system!"
+	exit
+fi
+
+# Declare the brightnessfile and the stripped lightname
+bcut=$(echo $bestlight | cut -d '/' -f5)
+bfile="$bestlight/brightness"
+
+# Get the wanted brightness
+if (( $doop == 0)); then
+	wbrightness=$((maxlight * brightness / 100))
+else
+	cbright=$(cat $light/actual_brightness)
+	wwbrightness=$((maxlight * obrightness / 100))
+	if [[ "$operator" == "+" ]]; then
+		wbrightness=$((cbright + wwbrightness))
+	else
+		wbrightness=$((cbright - wwbrightness))
+	fi
+	
+	# Make sure we dont go over or below caps, do this silently since its operators.
+	if ((wbrightness > maxlight)); then
+		wbrightness=$maxlight
+	fi
+
+	
+	mmincap=$((maxlight * mincap / 100))
+	if ((wbrightness < mmincap)); then
+		wbrightness=$mmincap
+	fi
+
+	#brightness=$((wbrightness * 100 / maxlight ))
+	brightness="$operator$obrightness"
+fi
+
+if [[ $wbrightness = "" ]]; then
+	wbrightness=0 
+fi
+
+
+
+# Make sure file exists
+if [[ ! -f $bfile ]]; then
+	echo "Could not find brightnessfile \"$bfile\"."
+	echo "Aborting!"
+	exit;
+fi
+
+# Make sure we gots teh rootz
+if [[ ! -w "$bfile" ]]; then
+	if (( $UID != 0 )); then
+		sudocmd=$(command -v sudo)
+		if [[ $sudocmd == "" ]]; then
+			echo -e "$cerr Superuser privilegies needed, either install sudo or be root."
+			exit
+		fi
+	else
+		echo -e "$cerr Script is launched as root but still can't write to file. Check your permissions."
+		exit;
+	fi
+fi
+
+echo -e "Setting $cgre$bcut$cend to $brightness% ($wbrightness)"
+echo ""
+mresult=$($sudocmd tee "$bfile" <<< $wbrightness)

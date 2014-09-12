@@ -1,0 +1,4 @@
+#!/bin/bash
+
+skype --dbpath=~/.Skype_vlad &
+
