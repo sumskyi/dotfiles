@@ -31,6 +31,7 @@ DISABLE_AUTO_TITLE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(bundler gem git git-flow heroku node npm rails rake rvm)
 
+source ~/.profile
 source $ZSH/oh-my-zsh.sh
 
 [[ -s "$HOME/.alias" ]] && . "$HOME/.alias"
