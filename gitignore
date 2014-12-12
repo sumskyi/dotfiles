@@ -19,6 +19,7 @@ rerun.txt
 pickle-email-*.html
 config/database.yml
 doc/*
+public/assets
 
 # ruby:
 *.gem

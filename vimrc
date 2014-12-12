@@ -12,10 +12,10 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " github:
-Bundle 'mileszs/ack.vim'
+" Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 Bundle 'vim-scripts/apidock.vim'
-Bundle 'sumskyi/vim-ruby-doc'
+Bundle 'lucapette/vim-ruby-doc'
 Bundle 'gregsexton/gitv'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -127,7 +127,7 @@ set laststatus=2
 
 set autoindent
 
-set gfn=Misc\ Fixed\ 12
+set gfn=Misc\ Fixed\ 11
 
 if has("gui_running")
     "colorscheme darkblue2
