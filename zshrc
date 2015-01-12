@@ -38,13 +38,11 @@ source $ZSH/oh-my-zsh.sh
 unset RUBYOPT
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM.
 
-PATH="/opt/oracle-jdk-bin-1.7.0.17/bin:$PATH"
-PATH="/usr/local/heroku/bin:$PATH"
+export JAVA_HOME=/usr/java/jdk1.8.0_25
+
 PATH="/home/vlad/local/bin:$PATH"
 PATH="/home/vlad/bin:$PATH"
 PATH="/home/vlad/bin/sbt/bin:$PATH"
-PATH="/home/vlad/adt-bundle/sdk/platform-tools:$PATH"
-PATH="/home/vlad/adt-bundle/sdk/tools:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export RBXOPT=-X19
@@ -61,3 +59,9 @@ alias sml="SMLNJ_HOME=/usr/lib/smlnj/ sml"
 . /home/vlad/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 eval `opam config env`
+
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+

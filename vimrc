@@ -27,7 +27,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'skwp/vim-colors-solarized'
 Bundle 'spllr/vim-padrino'
 Bundle 'SirVer/ultisnips'
-Bundle 'scala/scala-dist', { 'rtp': 'tool-support/src/vim/' }
+"Bundle 'scala/scala-dist', { 'rtp': 'tool-support/src/vim/' }
+Bundle 'derekwyatt/vim-scala'
 Bundle 'wlangstroth/vim-racket'
 
 Bundle 'tpope/vim-rvm'
@@ -59,6 +60,8 @@ Bundle 'matchit.zip'
 Bundle 'Tagbar'
 
 Bundle 'dr-chip-vim-scripts/ZoomWin'
+
+Bundle 'Shougo/neocomplete'
 
 " " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vundle end
 
@@ -172,6 +175,7 @@ let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails'
 let g:snipMate.scope_aliases['ruby-rspec'] = 'ruby,ruby-rspec'
 
 :se nu
+:se relativenumber
 
 set modeline
 set modelines=5
@@ -200,6 +204,8 @@ nmap <F8> :TagbarToggle<CR>
 let g:ctrlp_map = '<c-f>'
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|vendor$'
+
+let g:neocomplete#enable_at_startup = 1
 
 "nnoremap <c-f> :FufFile<CR>
 nnoremap <c-f> :CtrlP<CR>
