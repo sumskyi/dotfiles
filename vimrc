@@ -169,13 +169,8 @@ au BufNewFile,BufRead *_spec.rb setlocal filetype=ruby-rspec.ruby syntax=ruby
 "au BufNewFile,BufRead *_spec.rb setlocal filetype=ruby-rspec syntax=ruby
 au BufNewFile,BufRead *.hamljs set filetype=haml
 
-let g:snipMate = {}
-let g:snipMate.scope_aliases = {}
-let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails'
-let g:snipMate.scope_aliases['ruby-rspec'] = 'ruby,ruby-rspec'
-
 :se nu
-:se relativenumber
+":se relativenumber
 
 set modeline
 set modelines=5
