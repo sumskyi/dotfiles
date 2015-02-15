@@ -35,15 +35,12 @@ source ~/.profile
 source $ZSH/oh-my-zsh.sh
 
 [[ -s "$HOME/.alias" ]] && . "$HOME/.alias"
-unset RUBYOPT
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM.
 
 export JAVA_HOME=/usr/java/jdk1.8.0_25
 
 PATH="/home/vlad/local/bin:$PATH"
 PATH="/home/vlad/bin:$PATH"
 PATH="/home/vlad/bin/sbt/bin:$PATH"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export RBXOPT=-X19
 export TERMINAL=gnome-terminal
@@ -64,4 +61,7 @@ eval `opam config env`
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM.
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 

@@ -26,7 +26,10 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'skwp/vim-colors-solarized'
 Bundle 'spllr/vim-padrino'
+
 Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+
 "Bundle 'scala/scala-dist', { 'rtp': 'tool-support/src/vim/' }
 Bundle 'derekwyatt/vim-scala'
 Bundle 'wlangstroth/vim-racket'
@@ -200,7 +203,7 @@ let g:ctrlp_map = '<c-f>'
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|vendor$'
 
-let g:neocomplete#enable_at_startup = 1
+"let g:neocomplete#enable_at_startup = 1
 
 "nnoremap <c-f> :FufFile<CR>
 nnoremap <c-f> :CtrlP<CR>
