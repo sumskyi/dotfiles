@@ -195,6 +195,7 @@ map <C-A> <C-W>_
 
 nnoremap <c-p> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
+nmap <F9> :NeoCompleteToggle<CR>
 
 "let g:golden_ratio_autocommand = 0
 "nnoremap <F7> :GoldenRatioToggle<CR>
@@ -203,7 +204,7 @@ let g:ctrlp_map = '<c-f>'
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|vendor$'
 
-"let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#enable_at_startup = 1
 
 "nnoremap <c-f> :FufFile<CR>
 nnoremap <c-f> :CtrlP<CR>
