@@ -1,7 +1,5 @@
 alias gvim="UBUNTU_MENUPROXY=0 gvim --remote-silent"
-alias la="ls -la"
 alias gsps="git stash && git pull && git stash pop"
-alias hgrep="history | grep"
 alias i3lock="i3lock -c 050505"
 alias curl="curl -k"
 

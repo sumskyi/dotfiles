@@ -29,7 +29,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler gem git git-flow heroku node npm rails rake rvm)
+plugins=(bundler common-aliases extract gem git git-flow git-extras heroku node npm rails rake rvm)
 
 source ~/.profile
 source $ZSH/oh-my-zsh.sh
@@ -65,3 +65,8 @@ eval "$(pyenv virtualenv-init -)"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM.
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+if [ -d "/usr/local/heroku/bin" ]; then
+  export PATH="/usr/local/heroku/bin:$PATH"
+fi
+
+export N_PREFIX="/home/vlad/local"
