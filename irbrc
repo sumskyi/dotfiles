@@ -4,7 +4,9 @@ if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
   begin
 
     # this enables global gems when using local gemset with bundler
-    if RUBY_REVISION == 45877
+    if RUBY_VERSION == '1.8.7' && RUBY_DESCRIPTION =~ /Enterprise Edition (.*)/
+      $LOAD_PATH.concat Dir.glob("#{ENV['HOME']}/.rvm/gems/ree-1.8.7-#{$1}@global/gems/*/lib")
+    elsif RUBY_REVISION == 45877
       $LOAD_PATH.concat Dir.glob("#{ENV['HOME']}/.rvm/gems/ruby-#{RUBY_VERSION}@global/gems/*/lib")
     elsif RUBY_REVISION < 45161
       $LOAD_PATH.concat Dir.glob("#{ENV['HOME']}/.rvm/gems/ruby-#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}@global/gems/*/lib")
@@ -24,6 +26,10 @@ if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
 end
 
 IRB.conf[:PROMPT_MODE]=:CLASSIC
+
+def load_env
+  require 'config/environment'
+end
 
 
 require 'pry'
