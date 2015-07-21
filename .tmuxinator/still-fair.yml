@@ -1,0 +1,20 @@
+# ~/.tmuxinator/still-fair.yml
+
+name: still-fair
+root: /home/vlad/Code/Innomos/still-fair
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+pre_window: rvm use 2.2.0@still-fair
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - server: bundle exec rails s
+  - console: bundle exec rails c
+  - shell: ~
+  - test: bundle exec guard
+  - db: mysql -uroot still_fair_development

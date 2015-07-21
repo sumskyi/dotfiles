@@ -1,0 +1,26 @@
+# ~/.tmuxinator/currency.yml
+
+name: currency
+root: /home/vlad/Code/CurrencyTracker
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+pre_window: rvm use 2.1.2
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - server: bundle exec rails s
+  - console: bundle exec rails c
+  - shell: ~
+  - guard:
+      layout: main-vertical
+      panes:
+        - bundle exec guard
+        - tail -f log/test.log
+  - database: sqlite3 db/development.sqlite3
+
+

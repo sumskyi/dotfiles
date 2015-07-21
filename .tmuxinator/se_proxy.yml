@@ -1,0 +1,17 @@
+# ~/.tmuxinator/wordstat.yml
+# you can make as many tabs as you wish...
+
+project_name: se_proxy
+project_root: ~/public_html/_level_up/se-proxy
+socket_name: se_proxy # Not needed.  Remove to use default socket
+#rvm: 1.9.3@wordstat
+tabs:
+  - shell: ggpull
+  - console: script/console
+  - testing: guard
+  - server:
+      layout: main-horizontal
+      panes:
+        - foreman start -f Procfile.dev
+        - tail -f log/development.log
+        - tail -f log/test.log
