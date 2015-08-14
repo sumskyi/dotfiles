@@ -29,6 +29,7 @@ IRB.conf[:PROMPT_MODE]=:CLASSIC
 
 def load_env
   require 'config/environment'
+  require 'console_app'
 end
 
 
