@@ -53,3 +53,9 @@ compiled/
 .ruby-gemset
 .ruby-version
 MIGRAKE_STATUS
+config/secrets.yml
+
+
+
+
+
