@@ -5,7 +5,7 @@
 # pry-remote
 # pry-theme
 #
-Pry.config.editor = "gvim --remote-silent"
+Pry.config.editor = "vim"
 
 Pry.hooks.add_hook(:after_session, :say_bye) do
   puts "fuck off Gnida"
