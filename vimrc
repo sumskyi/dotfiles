@@ -9,62 +9,68 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " github:
 " Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
-Bundle 'vim-scripts/apidock.vim'
-Bundle 'lucapette/vim-ruby-doc'
-Bundle 'gregsexton/gitv'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'godlygeek/tabular'
-Bundle 'tomtom/tlib_vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'skwp/vim-colors-solarized'
-Bundle 'spllr/vim-padrino'
+Plugin 'rking/ag.vim'
+Plugin 'vim-scripts/apidock.vim'
+Plugin 'lucapette/vim-ruby-doc'
+Plugin 'gregsexton/gitv'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'godlygeek/tabular'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'skwp/vim-colors-solarized'
+Plugin 'spllr/vim-padrino'
 
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 "Bundle 'scala/scala-dist', { 'rtp': 'tool-support/src/vim/' }
-Bundle 'derekwyatt/vim-scala'
-Bundle 'wlangstroth/vim-racket'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'wlangstroth/vim-racket'
 
-Bundle 'tpope/vim-rvm'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-rvm'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
 "Bundle 'tpope/vim-dispatch'
 
-Bundle 'vim-ruby/vim-ruby'
+Plugin 'vim-ruby/vim-ruby'
 
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 
 " vimscripts repos
-Bundle 'bufexplorer.zip'
-Bundle 'Colour-Sampler-Pack'
-Bundle 'taglist.vim'
-Bundle 'L9'
-Bundle 'ctrlp.vim'
-Bundle 'matchit.zip'
+Plugin 'bufexplorer.zip'
+Plugin 'Colour-Sampler-Pack'
+Plugin 'taglist.vim'
+Plugin 'L9'
+Plugin 'ctrlp.vim'
+Plugin 'matchit.zip'
 " Bundle 'Puppet-Syntax-Highlighting'
-Bundle 'Tagbar'
+Plugin 'Tagbar'
 
-Bundle 'dr-chip-vim-scripts/ZoomWin'
+Plugin 'dr-chip-vim-scripts/ZoomWin'
 
-Bundle 'Shougo/neocomplete'
+Plugin 'Shougo/neocomplete'
+
+Plugin 'slim-template/vim-slim'
+
+Plugin 'othree/yajs.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
+
 
 " " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vundle end
 
@@ -165,6 +171,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP shiftwidth=4 softtabstop=4 tabstop=4
 autocmd FileType javascript set shiftwidth=4 softtabstop=4 tabstop=4 smarttab
 
+au BufNewFile,BufRead *.es6 set filetype=javascript
 au BufNewFile,BufRead *.rabl set filetype=ruby
 au BufNewFile,BufRead *.yajl set filetype=ruby
 "au BufNewFile,BufRead *.rb setlocal filetype=ruby-rails.ruby syntax=ruby

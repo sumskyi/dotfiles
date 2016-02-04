@@ -5,6 +5,10 @@
 # pry-remote
 # pry-theme
 #
+if [53290].include?(RUBY_REVISION)
+  $LOAD_PATH.concat Dir.glob("#{ENV['HOME']}/.rvm/gems/ruby-#{RUBY_VERSION}@global/gems/*/lib")
+end
+
 Pry.config.editor = "vim"
 
 Pry.hooks.add_hook(:after_session, :say_bye) do

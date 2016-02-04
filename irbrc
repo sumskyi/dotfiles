@@ -2,7 +2,6 @@ require 'rubygems'
 
 if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
   begin
-
     # this enables global gems when using local gemset with bundler
     if RUBY_VERSION == '1.8.7' && RUBY_DESCRIPTION =~ /Enterprise Edition (.*)/
       $LOAD_PATH.concat Dir.glob("#{ENV['HOME']}/.rvm/gems/ree-1.8.7-#{$1}@global/gems/*/lib")
