@@ -28,7 +28,7 @@ cmd_aliases.each do |_cmd, _alias|
   Pry.commands.alias_command _alias, _cmd if Pry.commands[_cmd]
 end
 
-%w(hirb).each { |gem| require gem }
+%w(hirb awesome_print).each { |gem| require gem }
 
 Hirb.enable
 

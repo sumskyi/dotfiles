@@ -46,6 +46,7 @@ Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-projectionist'
 "Bundle 'tpope/vim-dispatch'
 
 Plugin 'vim-ruby/vim-ruby'
