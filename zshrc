@@ -29,7 +29,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler common-aliases docker extract gem git git-flow git-extras heroku node npm rails rake rvm)
+plugins=(battery bundler common-aliases docker docker-compose extract gem git git-flow git-extras heroku httpie node npm rails rake rvm tmuxinator)
 
 source ~/.profile
 source $ZSH/oh-my-zsh.sh

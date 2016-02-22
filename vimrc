@@ -202,6 +202,7 @@ map <C-A> <C-W>_
 " source ~/.vim/vimrc
 
 nnoremap <c-p> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :NeoCompleteToggle<CR>
 
