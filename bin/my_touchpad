@@ -1,0 +1,16 @@
+#!/bin/bash
+
+me=`basename "$0"`
+touchscreen_id=`xinput | grep "Touchpad" | awk '{print $6}' | egrep -o "[[:digit:]]+"`
+
+case "$1" in
+  "1" | "on")
+    `xinput set-prop $touchscreen_id "Device Enabled" 1`
+    ;;
+  "0" | "off")
+    `xinput set-prop $touchscreen_id "Device Enabled" 0`
+    ;;
+  *)
+    echo "Usage: $me (1|0)"
+    ;;
+esac
