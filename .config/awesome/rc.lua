@@ -84,7 +84,7 @@ do
 end
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "gnome-terminal"
 editor = os.getenv("EDITOR") or os.getenv("VISUAL") or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
