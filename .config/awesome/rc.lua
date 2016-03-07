@@ -200,16 +200,14 @@ end, '<span foreground="${color}">bat: $2% $3h</span>', 10, 'BAT0')
 -- Initialise widget
 mynetwidget = wibox.widget.textbox()
 -- Register widget
-vicious.register(mynetwidget, vicious.widgets.net, "${eth0 down_kb} / ${eth0 up_kb}", 1)
+-- vicious.register(mynetwidget, vicious.widgets.net, "${eth0 down_kb} / ${eth0 up_kb}", 1)
 
 -- wifi
 -- provides wireless information for a requested interface
 -- takes the network interface as an argument, i.e. "wlan0"
 -- returns a table with string keys: {ssid}, {mode}, {chan}, {rate}, {link}, {linp} and {sign}
 -- wifi = widget({ type = "textbox" })
--- vicious.register(wifi, vicious.widgets.wifi, "${link}", 121, "wlan0")
-
-
+--vicious.register(mynetwidget, vicious.widgets.wifi, "${ssid}", 121, "wlp1s0")
 
 -- Weather widget
 myweatherwidget = wibox.widget.textbox()
@@ -218,9 +216,10 @@ vicious.register(myweatherwidget, vicious.widgets.weather,
                 function (widget, args)
                     weather_t:set_text("City: " .. args["{city}"] .."\nWind: " .. args["{windkmh}"] .. "km/h " .. args["{wind}"] .. "\nSky: " .. args["{sky}"] .. "\nHumidity: " .. args["{humid}"] .. "%")
                     return args["{tempc}"] .. "C"
-                end, 1800, "EDDN")
+                end, 1800, "UKKK")
                 --'1800': check every 30 minutes.
                 --'EDDN': Nuernberg ICAO code.
+                --'UKKK': Kiev ICAO code.
 
 
 -- Keyboard map indicator and changer
