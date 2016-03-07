@@ -70,3 +70,6 @@ if [ -d "/usr/local/heroku/bin" ]; then
 fi
 
 export N_PREFIX="/home/vlad/local"
+
+export NVM_DIR="/home/vlad/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
