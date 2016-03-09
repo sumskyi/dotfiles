@@ -25,7 +25,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'skwp/vim-colors-solarized'
-Plugin 'spllr/vim-padrino'
+"Plugin 'spllr/vim-padrino'
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -60,7 +60,6 @@ Plugin 'taglist.vim'
 Plugin 'L9'
 Plugin 'ctrlp.vim'
 Plugin 'matchit.zip'
-" Bundle 'Puppet-Syntax-Highlighting'
 Plugin 'Tagbar'
 
 Plugin 'dr-chip-vim-scripts/ZoomWin'
@@ -75,64 +74,11 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 
 " " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vundle end
 
-" call pathogen#runtime_append_all_bundles()
-
 syntax on " Enable syntax highlighting
 filetype plugin indent on " Enable filetype-specific indenting and plugins
 
 set ruler
-"set cmdheight=2
 
-"statusline setup
-""    set statusline=%f       "tail of the filename
-
-"Git
-""    set statusline+=%{fugitive#statusline()}
-"set statusline+=[%{GitBranch()}]
-
-"RVM
-""    set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
-
-"display a warning if fileformat isnt unix
-"set statusline+=%#warningmsg#
-"set statusline+=%{&ff!='unix'?'['.&ff.']':''}
-"set statusline+=%*
-
-"Display a warning if file encoding isnt utf-8
-"set statusline+=%#warningmsg#
-"set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
-"set statusline+=%*
-
-"set statusline+=%h "help file flag
-"set statusline+=%y "filetype
-"set statusline+=%r "read only flag
-"set statusline+=%m "modified flag
-
-"display a warning if &et is wrong, or we have mixed-indenting
-"set statusline+=%#error#
-"set statusline+=%{StatuslineTabWarning()}
-"set statusline+=%*
-"
-"set statusline+=%{StatuslineTrailingSpaceWarning()}
-"
-"set statusline+=%{StatuslineLongLineWarning()}
-"
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"display a warning if &paste is set
-"set statusline+=%#error#
-"set statusline+=%{&paste?'[paste]':''}
-"set statusline+=%*
-
-""    set statusline+=%= "left/right separator
-
-"set statusline+=%{StatuslineCurrentHighlight()}\ \ "current highlight
-
-"set     statusline+=%c, "cursor column
-"set     statusline+=%l/%L "cursor line/total lines
-"set     statusline+=\ %P "percent through file
 set laststatus=2
 
 "turn off needless toolbar on gvim/mvim
@@ -143,26 +89,19 @@ set autoindent
 set gfn=Misc\ Fixed\ 11
 
 if has("gui_running")
-    "colorscheme darkblue2
-    "colorscheme tabula
     set background=dark
     colorscheme solarized
 else
     colorscheme relaxedgreen
-    "murphy
-    "darkblue
 endif
-
-"set shiftwidth=4
-"set softtabstop=4
-"set tabstop=4
-"set smarttab
 
 "indent settings
 set shiftwidth=2
 set softtabstop=2
 set expandtab
 set autoindent
+"set tabstop=4
+"set smarttab
 
 ":autocmd FileType yaml set expandtab ts=2 sw=2
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -199,8 +138,6 @@ inoremap <C-L> <C-O>:nohls<CR>
 
 map <C-A> <C-W>_
 
-" source ~/.vim/vimrc
-
 nnoremap <c-p> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 nmap <F8> :TagbarToggle<CR>
@@ -215,13 +152,9 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|vendor$'
 
 " let g:neocomplete#enable_at_startup = 1
 
-"nnoremap <c-f> :FufFile<CR>
 nnoremap <c-f> :CtrlP<CR>
-"nnoremap <c-b> :FufBuffer<CR>
 nnoremap <c-b> :CtrlPBuffer<CR>
 nnoremap <c-t> :CtrlPTag<CR>
-
-"nnoremap <c-t> :FufTaggedFile<CR>
 
 lang en_US.UTF-8
 
