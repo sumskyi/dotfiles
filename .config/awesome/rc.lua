@@ -207,7 +207,7 @@ mynetwidget = wibox.widget.textbox()
 -- takes the network interface as an argument, i.e. "wlan0"
 -- returns a table with string keys: {ssid}, {mode}, {chan}, {rate}, {link}, {linp} and {sign}
 -- wifi = widget({ type = "textbox" })
---vicious.register(mynetwidget, vicious.widgets.wifi, "${ssid}", 121, "wlp1s0")
+vicious.register(mynetwidget, vicious.widgets.wifi, "${ssid}", 121, "wlp1s0")
 
 -- Weather widget
 myweatherwidget = wibox.widget.textbox()
