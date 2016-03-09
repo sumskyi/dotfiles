@@ -1,6 +1,3 @@
-let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
-execute "set rtp+=".s:ocamlmerlin."/vim"
-execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
-
-" associate *.ocaml with ocaml filetype
-au BufRead,BufNewFile *.ocaml setfiletype ocaml
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+let g:syntastic_ocaml_checkers = ['merlin']
