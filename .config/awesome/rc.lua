@@ -51,6 +51,21 @@ if awesome.startup_errors then
                      text = awesome.startup_errors })
 end
 
+
+-- customization
+customization = {}
+customization.orig = {}
+customization.orig.quit = awesome.quit
+
+cnfrm = "echo -e 'No\nYes' | dmenu -p Quit?"
+
+awesome.quit = function()
+  if awful.util.pread(cnfrm):sub(1, 3) == "Yes" then
+    customization.orig.quit()
+  end
+end
+
+
 -- Handle runtime errors after startup
 do
     local in_error = false
@@ -666,3 +681,5 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+
