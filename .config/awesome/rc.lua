@@ -455,6 +455,8 @@ globalkeys = awful.util.table.join(
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end,"Run command"),
+    awful.key({modkey },             "d", function() awful.util.spawn( "dmenu_run" ) end),
+
     -- this function below will enable ssh login as long as the remote host is defined in $HOME/.ssh/config
     -- else by give the remote host name at the prompt which will also work
     awful.key({ modkey,           }, "s",
