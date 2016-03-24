@@ -1,4 +1,4 @@
-linkables = %w(ackrc alias gemrc gitconfig gitignore i3status.conf irbrc mailcap profile pryrc rvmrc vimrc gvimrc zshrc tmux.conf)
+linkables = (Dir['*'].select { |fn| File.file?(fn) } - %w(Rakefile))
 
 desc "install all"
 task :install => [:symlink, :vim]
