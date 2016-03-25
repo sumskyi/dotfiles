@@ -21,9 +21,4 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# OPAM configuration
-. /home/vlad/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-
-[ -z "$TMUX" ] && export TERM=xterm-256color
-
 xset -b
