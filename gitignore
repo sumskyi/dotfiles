@@ -17,6 +17,7 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 config/database.yml
+config/projections.json
 doc/*
 public/assets
 

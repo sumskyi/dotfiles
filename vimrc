@@ -23,16 +23,11 @@ Plugin 'scrooloose/syntastic'
 Plugin 'godlygeek/tabular'
 Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'skwp/vim-colors-solarized'
 "Plugin 'spllr/vim-padrino'
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-
-"Bundle 'scala/scala-dist', { 'rtp': 'tool-support/src/vim/' }
-Plugin 'derekwyatt/vim-scala'
-Plugin 'wlangstroth/vim-racket'
 
 Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-bundler'
@@ -66,11 +61,16 @@ Plugin 'dr-chip-vim-scripts/ZoomWin'
 
 Plugin 'Shougo/neocomplete'
 
-Plugin 'slim-template/vim-slim'
 
+
+" syntax
+Plugin 'derekwyatt/vim-scala'
+Plugin 'wlangstroth/vim-racket'
 Plugin 'othree/yajs.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
-
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'slim-template/vim-slim'
+Plugin 'lambdatoast/elm.vim'
 
 " " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vundle end
 
@@ -165,7 +165,8 @@ set t_vb=
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 let g:syntastic_enable_signs=1
-let g:rails_menu=1
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+"let g:rails_menu=1
 
 "display tabs and trailing spaces
 set list
