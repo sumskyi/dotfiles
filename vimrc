@@ -70,7 +70,18 @@ Plugin 'othree/yajs.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'slim-template/vim-slim'
-Plugin 'lambdatoast/elm.vim'
+Plugin 'ElmCast/elm-vim'
+
+" typescript
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'Shougo/vimproc.vim'
+
+" Ember
+Plugin 'AndrewRadev/ember_tools.vim'
+Plugin 'joukevandermaas/vim-ember-hbs'
+
+
 
 " " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vundle end
 
@@ -151,6 +162,10 @@ let g:ctrlp_working_path_mode = 2
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|vendor$'
 
 " let g:neocomplete#enable_at_startup = 1
+call neocomplete#util#set_default_dictionary(
+  \ 'g:neocomplete#sources#omni#input_patterns',
+  \ 'elm',
+  \ '\.')
 
 nnoremap <c-f> :CtrlP<CR>
 nnoremap <c-b> :CtrlPBuffer<CR>
@@ -166,6 +181,11 @@ set t_vb=
 
 let g:syntastic_enable_signs=1
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_coffee_coffeelint_args = "--csv --file ~/coffeelint.json"
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:elm_syntastic_show_warnings = 1
 "let g:rails_menu=1
 
 "display tabs and trailing spaces
@@ -179,7 +199,7 @@ set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set foldmethod=syntax
 set nofoldenable
 
-set colorcolumn=80
+set colorcolumn=80,120
 
 let g:ruby_doc_ruby_search_host='http://apidock.com/ruby/'
 
@@ -194,3 +214,6 @@ if filereadable(expand("~/.vimrc.ocaml"))
   source ~/.vimrc.ocaml
 endif
 
+let g:UltiSnipsEditSplit="vertical"
+
+let g:NERDSpaceDelims = 1

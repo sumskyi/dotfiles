@@ -5,7 +5,7 @@
 # pry-remote
 # pry-theme
 #
-if [53290].include?(RUBY_REVISION)
+if [53155, 51632, 53290, 54768, 56859].include?(RUBY_REVISION)
   $LOAD_PATH.concat Dir.glob("#{ENV['HOME']}/.rvm/gems/ruby-#{RUBY_VERSION}@global/gems/*/lib")
 end
 

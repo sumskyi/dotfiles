@@ -36,6 +36,7 @@ test/tmp
 test/version_tmp
 tmp
 .rvmrc
+.ruby-version
 
 # YARD artifacts
 .yardoc

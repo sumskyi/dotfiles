@@ -5,6 +5,8 @@ alias curl="curl -k"
 
 alias skype="MALLOC_CHECK_=1 skype"
 
+alias mux="tmuxinator"
+
 #alias extproc="ssh -A -t ubuntu@ci2.rz.calavista.com ssh -A -t 10.0.1.49 sudo su royaltyzone -l"
 #alias production="ssh -A -t ubuntu@ci2.rz.calavista.com ssh -A -t 10.0.0.40 sudo su royaltyzone -l"
 #alias test100="ssh -A -t ubuntu@ci2.rz.calavista.com ssh -A -t 10.0.0.100 $sudo_rz"

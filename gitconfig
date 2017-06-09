@@ -38,7 +38,7 @@
 [branch "master"]
     rebase = true
 [credential]
-	helper = cache
+	helper = cache --timeout=2592000
 [pull]
 	rebase = true
 [push]

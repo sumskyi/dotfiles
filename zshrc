@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/vlad/.oh-my-zsh
+export ZSH=/home/vlad/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -48,7 +48,8 @@ ZSH_THEME="candy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(battery bundler common-aliases docker docker-compose extract gem git git-flow git-extras heroku httpie node npm rails rake rvm tmuxinator)
+plugins=(bundler colored-man-pages colorize common-aliases docker docker-compose extract gem git git-flow git-extras heroku history httpie node npm rails rake rvm tmuxinator)
+# zsh-navigation-tools
 
 # User configuration
 
@@ -85,6 +86,7 @@ export EDITOR=vim
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+test -s ~/.alias && . ~/.alias || true
 
 
 alias sml="SMLNJ_HOME=/usr/lib/smlnj/ sml"
@@ -92,7 +94,7 @@ alias sml="SMLNJ_HOME=/usr/lib/smlnj/ sml"
 # OPAM configuration
 . /home/vlad/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-eval `opam config env`
+# eval `opam config env`
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -105,3 +107,7 @@ export N_PREFIX="/home/vlad/local"
 
 export NVM_DIR="/home/vlad/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export DISABLE_AUTO_TITLE=true
+
