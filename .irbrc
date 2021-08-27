@@ -6,6 +6,7 @@ to_load = %w[
   pry-doc
   pry-remote
   pry-theme
+  sketches
   slop
   yard
 ].join('|')
