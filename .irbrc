@@ -41,7 +41,9 @@ load_gem 'sketches' do
   Sketches.config :editor => 'gvim'
 end
 
-load_gem 'awesome_print'
+load_gem 'awesome_print' do
+  AwesomePrint.irb!
+end
 
 load_gem 'pry' do
   Pry.start
