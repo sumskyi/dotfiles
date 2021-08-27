@@ -5,9 +5,6 @@
 # pry-remote
 # pry-theme
 #
-if [53155, 51632, 53290, 54768, 56859].include?(RUBY_REVISION)
-  $LOAD_PATH.concat Dir.glob("#{ENV['HOME']}/.rvm/gems/ruby-#{RUBY_VERSION}@global/gems/*/lib")
-end
 
 Pry.config.editor = "vim"
 
@@ -15,9 +12,13 @@ Pry.hooks.add_hook(:after_session, :say_bye) do
   puts "fuck off Gnida"
 end
 
-Pry.prompt = [Proc.new{ |obj, nest_level| "#{RUBY_VERSION}-#{RUBY_PATCHLEVEL} (#{obj}):#{nest_level} > " },
-              Proc.new{ |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " } ]
-
+Pry.config.prompt = Pry::Prompt.new(
+  'custom',
+  'my custom prompt',
+  [ Proc.new{ |obj, nest_level| "#{RUBY_VERSION}-#{RUBY_PATCHLEVEL} (#{obj}):#{nest_level} > " },
+    Proc.new{ |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }
+  ]
+)
 
 cmd_aliases = {
   'continue'  => 'c',
@@ -28,7 +29,16 @@ cmd_aliases.each do |_cmd, _alias|
   Pry.commands.alias_command _alias, _cmd if Pry.commands[_cmd]
 end
 
-%w(hirb awesome_print pry-coolline pry-doc pry-remote pry-theme).each { |gem| require gem }
+# pry-coolline
+%w(
+  awesome_print
+  hirb
+  pry-doc
+  pry-remote
+  pry-theme
+).each { |gem| require gem }
+
+AwesomePrint.pry!
 
 Hirb.enable
 
@@ -53,4 +63,4 @@ end
 
 Pry.config.theme = "solarized"
 
-Pry.config.coolline_paren_matching = false
+# Pry.config.coolline_paren_matching = false
