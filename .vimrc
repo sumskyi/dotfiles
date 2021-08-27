@@ -138,6 +138,8 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-projectionist'
 " Bundle 'tpope/vim-dispatch'
 
+Plugin 'tpope/vim-fireplace'
+
 " JS / ES6 / TypeScript / Prettier / etc
 Plugin 'leafgarland/typescript-vim'
 let g:typescript_compiler_binary = 'tsc'
@@ -210,6 +212,9 @@ inoremap <C-L> <C-O>:nohls<CR>
 " To increase a window to its maximum width, use Ctrl-w |.
 map <C-A> <C-W>_
 
+map <C-J> :diffput<CR>
+map <C-K> :diffget<CR>
+
 set noerrorbells
 set visualbell
 set t_vb=
@@ -233,6 +238,4 @@ endif
 if filereadable(expand("~/.vimrc.ocaml"))
   source ~/.vimrc.ocaml
 endif
-
-
 
