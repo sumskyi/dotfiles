@@ -14,10 +14,17 @@ Pry.hooks.add_hook(:after_session, :say_bye) do
   puts 'fuck off Gnida'
 end
 
-Pry.config.prompt = [
-  proc { |obj, nest_level| "#{RUBY_VERSION}-#{RUBY_PATCHLEVEL} (#{obj}):#{nest_level} > " },
-  proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }
-]
+# warning: setting prompt with help of
+# `Pry.config.prompt = [proc {}, proc {}]` is deprecated.
+# Use Pry::Prompt API instead
+Pry.config.prompt = Pry::Prompt.new(
+  'custom',
+  'my custom prompt',
+  [
+    proc { |obj, nest_level| "#{RUBY_VERSION}-#{RUBY_PATCHLEVEL} (#{obj}):#{nest_level} > " },
+    proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }
+  ]
+)
 
 cmd_aliases = {
   'continue' => 'c',
@@ -62,3 +69,5 @@ ActiveRecord::Base.logger = Logger.new(STDOUT) if defined? ActiveRecord::Base
 Pry.config.theme = 'solarized'
 
 # Pry.config.coolline_paren_matching = false
+
+

@@ -1,1 +1,1 @@
-set gfn=Misc\ Fixed\ 11
+set gfn=MyFixed\ Regular\ 13

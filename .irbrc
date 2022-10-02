@@ -42,6 +42,16 @@ def time(times = 1)
   ret
 end
 
+# USAGE:
+# location(klass, :method_name) - for class methods
+# location(klass.new, :method_name) - for instance methods
+def location(klass_or_instance, method_name)
+  klass_or_instance
+    .method(method_name)
+    .source_location
+    .join(':')
+end
+
 load_gem 'hirb' do
   Hirb.enable
   extend Hirb::Console
@@ -55,7 +65,7 @@ load_gem 'awesome_print' do
   AwesomePrint.irb!
 end
 
-# note after starting Pry nothing wont work
+# NOTE: after starting Pry nothing wont work
 load_gem 'pry' do
   Pry.start
 end

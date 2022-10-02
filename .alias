@@ -1,11 +1,21 @@
-alias gvim="UBUNTU_MENUPROXY=0 gvim --remote-silent"
+# alias gvim="UBUNTU_MENUPROXY=0 gvim --remote-silent"
+alias gvim="/etc/alternatives/gvim --remote-silent"
+alias gvimt="/etc/alternatives/gvim --remote-tab"
+
 alias gsps="git stash && git pull && git stash pop"
-alias i3lock="i3lock -c 050505"
+
+# alias i3lock="i3lock -c 050505"
+alias i3lock="i3lock -i /home/vlad/Pictures/wallpaper2.png"
+
 alias curl="curl -k"
 
 alias skype="MALLOC_CHECK_=1 skype"
 
 alias mux="tmuxinator"
+alias be="bundle exec"
+alias universal-ctags="ctags-universal"
+
+alias cal="ncal -M -b"
 
 #alias extproc="ssh -A -t ubuntu@ci2.rz.calavista.com ssh -A -t 10.0.1.49 sudo su royaltyzone -l"
 #alias production="ssh -A -t ubuntu@ci2.rz.calavista.com ssh -A -t 10.0.0.40 sudo su royaltyzone -l"

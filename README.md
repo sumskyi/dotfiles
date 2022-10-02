@@ -3,4 +3,9 @@ dotfiles
 
 - Vim
 - oh-my-zsh
-- git
+- Git
+- OCaml
+- JAVA
+- profile
+- aliases
+- etc

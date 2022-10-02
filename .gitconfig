@@ -69,5 +69,11 @@
   f = "!git ls-files | grep -i"
   gr = grep -Ii
   la = "!git config -l | grep alias | cut -c 7-"
+  re = checkout HEAD
+  ci = commit
 
 
+; https://stackoverflow.com/questions/16244969/how-to-tell-git-to-ignore-individual-lines-i-e-gitignore-for-specific-lines-of
+; [filter "gitignore"]
+  ; clean = "sed '/#gitignore$/d'"
+  ; smudge = cat

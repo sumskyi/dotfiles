@@ -59,4 +59,11 @@ config/secrets.yml
 
 
 
-
+# PATH LMS:
+.env.test
+.rubocop.yml
+bin/linter_ruby.sh
+cert.key
+cert.pem
+cle.ncbar.org.key
+config/linters/ruby2.yml
