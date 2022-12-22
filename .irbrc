@@ -6,6 +6,7 @@ to_load = %w[
   hirb
   pry
   pry-doc
+  pry-rails
   pry-remote
   pry-theme
   sketches
@@ -26,6 +27,7 @@ Gem.path.each do |path|
   end
 end
 
+# rubocop:disable Rails/Output
 def load_gem(name, lib = nil, &_block)
   lib ||= name
   require lib
@@ -33,6 +35,7 @@ def load_gem(name, lib = nil, &_block)
 rescue LoadError => e
   puts "#{e.class}: run 'gem install #{name}'"
 end
+# rubocop:enable Rails/Output
 
 # benchmark
 def time(times = 1)
@@ -64,6 +67,8 @@ end
 load_gem 'awesome_print' do
   AwesomePrint.irb!
 end
+
+load_gem 'pry-rails'
 
 # NOTE: after starting Pry nothing wont work
 load_gem 'pry' do

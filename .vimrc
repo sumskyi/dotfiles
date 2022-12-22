@@ -13,7 +13,7 @@ set belloff=all
 " set guifont=Source\ Code\ Pro\ Light
 set guifont=MyFixed\ Regular
 set termencoding=utf-8
-set encoding=utf-8
+set encoding=UTF-8
 set fileencodings=utf8
 
 
@@ -28,7 +28,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'scrooloose/nerdtree'
+Plugin 'preservim/nerdtree'
 nnoremap <c-p> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let g:NERDSpaceDelims = 1
@@ -48,9 +48,17 @@ let NERDTreeIgnore=['\.o$', '\~$', '\.swp$']
 " [count]<leader>cl |NERDCommenterAlignLeft
 " [count]<leader>cb |NERDCommenterAlignBoth
 " [count]<leader>cu |NERDCommenterUncomment|
-Plugin 'scrooloose/nerdcommenter'
+
+" Plugin 'scrooloose/nerdcommenter'
+Plugin 'preservim/nerdcommenter'
 
 Plugin 'skwp/vim-colors-solarized'
+
+" Plugin 'thoughtbot/vim-rspec'
+" map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
 
 Plugin 'Tagbar'
 nmap <F8> :TagbarToggle<CR>
@@ -64,9 +72,9 @@ nmap <F8> :TagbarToggle<CR>
 " let g:golden_ratio_exclude_nonmodifiable = 1
 " nnoremap <F7> :GoldenRatioToggle<CR>
 
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'roxma/nvim-yarp'
-Plugin 'roxma/vim-hug-neovim-rpc'
+" Plugin 'Shougo/deoplete.nvim'
+" Plugin 'roxma/nvim-yarp'
+" Plugin 'roxma/vim-hug-neovim-rpc'
 let g:deoplete#enable_at_startup = 1
 
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -118,7 +126,7 @@ Plugin 'rking/ag.vim'
 Plugin 'godlygeek/tabular'
 
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-crystal/vim-crystal'
+" Plugin 'vim-crystal/vim-crystal'
 
 " Plugin 'tpope/vim-rvm'
 " Plugin 'tpope/vim-bundler'
@@ -138,6 +146,9 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-projectionist'
 " Bundle 'tpope/vim-dispatch'
 
+Plugin 'tpope/vim-dadbod'
+Plugin 'tpope/vim-dotenv'
+
 Plugin 'tpope/vim-fireplace'
 
 " JS / ES6 / TypeScript / Prettier / etc
@@ -153,7 +164,7 @@ let g:svelte_preprocessors = ['typescript']
 
 Plugin 'maxmellon/vim-jsx-pretty'
 
-Plugin 'mlaursen/vim-react-snippets'
+" Plugin 'mlaursen/vim-react-snippets'
 
 " WTF
 " Plugin 'neoclide/coc-eslint'

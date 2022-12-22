@@ -10,9 +10,9 @@
 
 Pry.config.editor = 'vim'
 
-Pry.hooks.add_hook(:after_session, :say_bye) do
-  puts 'fuck off Gnida'
-end
+# Pry.hooks.add_hook(:after_session, :say_bye) do
+#   puts 'fuck off Gnida'
+# end
 
 # warning: setting prompt with help of
 # `Pry.config.prompt = [proc {}, proc {}]` is deprecated.
@@ -25,6 +25,7 @@ Pry.config.prompt = Pry::Prompt.new(
     proc { |obj, nest_level| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }
   ]
 )
+Pry.config.prompt = Pry::Prompt[:rails] if Pry::Prompt[:rails]
 
 cmd_aliases = {
   'continue' => 'c',
@@ -60,14 +61,10 @@ Pry.config.print = proc do |*args|
 end
 
 # fix for NoMethodError: undefined method `reload!' for main:Object
-if defined? Rails
-  include Rails::ConsoleMethods if defined?(Rails::ConsoleMethods)
-end
+# include Rails::ConsoleMethods # if defined?(Rails::ConsoleMethods)
 
-ActiveRecord::Base.logger = Logger.new(STDOUT) if defined? ActiveRecord::Base
+ActiveRecord::Base.logger = Logger.new($stdout) if defined? ActiveRecord::Base
 
 Pry.config.theme = 'solarized'
 
 # Pry.config.coolline_paren_matching = false
-
-
