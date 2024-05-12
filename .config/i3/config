@@ -14,18 +14,16 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:monospace 8
+# font MyFixed 10
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-# Before i3 v4.8, we used to recommend this one as the default:
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
-
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -45,15 +43,16 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# use these keys for focus, movement, and resize directions when reaching for
-# the arrows is not convenient
-set $up l
-set $down k
-set $left j
-set $right semicolon
-
+# from new config
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+# floating_modifier $mod
+# set $up l
+# set $down k
+# set $left j
+# set $right semicolon
+
+# from new config
+tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -62,23 +61,21 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-# bindsym $mod+d exec dmenu_run -fn 'Misc Fixed'
-# bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Misc Fixed'
+bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
-bindsym $mod+d exec "rofi -modi drun,run -show combi -font 'Source Code Pro Regular 11'"
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'Misc Fixed'"
+# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+# bindsym $mod+Shift+d exec "rofi -modi drun,run -show combi -font 'My Fixed 13'"
+# from new config
+bindsym $mod+Shift+d exec "rofi -modi drun,run -show drun -font 'My Fixed 13'"
+# There also is i3-dmenu-desktop which only displays applications shipping a
+# .desktop file. It is a wrapper around dmenu, so you need that installed.
+# bindcode $mod+d exec--no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -87,10 +84,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -98,16 +95,7 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
+# split in horizontal or+w layout tabbed
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -122,11 +110,16 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+# bindsym $mod+d focus child
 
+# enable keyboard highlightning
+bindsym $mod+f exec "xset led 3"
+# disable keyboard highlightning
+bindsym $mod+Shift+f exec "xset -led 3"
+
+# from new config
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
-
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
@@ -174,11 +167,6 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-exec_always "setxkbmap -model pc104 -layout us,ua -variant ,, -option grp:alt_shift_toggle"
-exec "setxkbmap -layout us,ua"
-exec "setxkbmap -option 'grp:alt_shift_toggle'"
-exec gxkb
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -210,35 +198,9 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-        # font Misc Fixed 10
-        colors {
-            # separator "#2980B9"
-            separator "#FF0000"
-        }
 }
 
-for_window [class="Guake"] floating enable
-for_window [class="guake"] floating enable
-for_window [class="yakuake"] floating enable
-for_window [class="xfce4-notifyd"] floating enable
-for_window [class="notifyd"] floating enable
-
-#assign [class="firefox"] 1
-#assign [class="gvim"] 2
-#assign [class="sublime"] 3
-#assign [class="chromium"] 4
-
-# exec gxneur
-exec --no-startup-id nitrogen --restore
-# exec_always ~/bin/keyboard_restart
-
-#exec_always xrandr --output LVDS1 --right-of DP1
-#exec_always xinput --set-prop "ImPS/2 Generic Wheel Mouse" "Device Enabled" 0
-
-# bindsym XF86MonBrightnessUp exec /usr/bin/xbacklight -inc 10
-# bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 10
-
-# bindsym $mod+F1 exec ~/bin/resize_screen
-# bindsym $mod+F1 exec yakuake
-bindsym F12 exec yakuake,[class="Yakuake"] scratchpad show
-
+exec "~/bin/disable_internal_keyboard.sh"
+# exec_always "setxkbmap -model pc104 -layout us,ua -variant ,, -option grp:alt_shift_toggle"
+exec "setxkbmap -model pc104 -layout us,ua -variant ,, -option grp:alt_shift_toggle"
+exec "gxkb"
