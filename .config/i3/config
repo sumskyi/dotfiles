@@ -113,9 +113,9 @@ bindsym $mod+a focus parent
 # bindsym $mod+d focus child
 
 # enable keyboard highlightning
-bindsym $mod+f exec "xset led 3"
+bindsym $mod+Scroll_Lock exec "xset led 3"
 # disable keyboard highlightning
-bindsym $mod+Shift+f exec "xset -led 3"
+bindsym $mod+Shift+Scroll_Lock exec "xset -led 3"
 
 # from new config
 # move the currently focused window to the scratchpad
