@@ -17,10 +17,6 @@ set $mod Mod4
 # font MyFixed 10
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
