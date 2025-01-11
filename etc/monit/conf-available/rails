@@ -1,5 +1,5 @@
 check host rails with address 0.0.0.0
   if failed port 3000 then restart
   if failed port 5432 then restart
-  start program = "/usr/bin/nohup /bin/bash -c 'cd /home/pi/Code/companies; docker-compose up' &"
-  stop program = "/usr/bin/nohup /bin/bash -c 'cd /home/pi/Code/companies; docker-compose down' &"
+  start program = "/usr/bin/nohup /bin/bash -c 'cd /home/pi/Code/companies; docker-compose up' &" with timeout 90 s
+  stop program = "/usr/bin/nohup /bin/bash -c 'cd /home/pi/Code/companies; docker-compose down' &" with timeout 30 s
