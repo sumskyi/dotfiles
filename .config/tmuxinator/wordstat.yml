@@ -1,14 +1,15 @@
 # ~/.tmuxinator/wordstat.yml
 # you can make as many tabs as you wish...
 
-project_name: wordstat
-project_root: ~/public_html/_level_up/wordstat
-socket_name: wordstat_socket # Not needed.  Remove to use default socket
-#rvm: 1.9.3@wordstat
+project_name: Wordstat
+project_root: ~/Code/level_up/wordstat
+socket_name: foo # Not needed.  Remove to use default socket
+# rvm: 1.9.3@wordstat
+# pre: sudo /etc/rc.d/mysqld start
 tabs:
   - shell: ggpull
   - console: bundle exec padrino console
-  - testing: guard
+  - testing: guard -P rspec
   - server:
       layout: main-horizontal
       panes:

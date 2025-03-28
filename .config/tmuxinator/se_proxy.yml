@@ -1,10 +1,11 @@
 # ~/.tmuxinator/wordstat.yml
 # you can make as many tabs as you wish...
 
-project_name: se_proxy
-project_root: ~/public_html/_level_up/se-proxy
-socket_name: se_proxy # Not needed.  Remove to use default socket
-#rvm: 1.9.3@wordstat
+project_name: SeProxy
+project_root: ~/Code/level_up/se-proxy
+socket_name: seproxy # Not needed.  Remove to use default socket
+# rvm: 1.9.3@wordstat
+# pre: sudo /etc/rc.d/mysqld start
 tabs:
   - shell: ggpull
   - console: script/console
