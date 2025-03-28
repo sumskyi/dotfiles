@@ -49,10 +49,10 @@ pre_window: rvm use 3.3.4
 windows:
   - angular:
       root: ~/Code/_MacLabs/notetaking-ng
-      layout: even-horizontal
+      layout: main-vertical
       panes:
-        - ng serve
         - ~
+        - ng serve
   - rails:
       root: ~/Code/_MacLabs/notetaking-rails-mock
       layout: tiled
