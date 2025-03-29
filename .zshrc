@@ -70,7 +70,7 @@ ZSH_THEME="candy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colorize extract git git-flow git-prompt nmap sudo thefuck tmux)
+plugins=(aliases colorize extract docker git git-flow git-prompt nmap rails sudo thefuck tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+  export EDITOR='gvim'
 # else
 #   export EDITOR='mvim'
 # fi
@@ -105,7 +105,19 @@ if [[ -f ~/.alias ]]; then
 fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/.rvm/bin:$HOME/.fly/bin"
 
 # opam configuration
 [[ ! -r /home/vlad/.opam/opam-init/init.zsh ]] || source /home/vlad/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+. "$HOME/.asdf/asdf.sh"
+
+export PATH="/usr/local/go/bin:$PATH"
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
