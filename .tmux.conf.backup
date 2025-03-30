@@ -35,8 +35,21 @@ bind k resize-pane -U 10
 bind l resize-pane -L 10
 bind h resize-pane -R 10
 
-set -g @menus_location_x '0'
-set -g @menus_location_y '0'
+# set -g @menus_trigger 'F10'
+# set -g @menus_without_prefix 'Yes'
+# set -g @menus_use_cache 'No'
+# set -g @menus_use_hint_overlays 'No'
+# set -g @menus_show_key_hints 'Yes'
+# set -g @menus_log_file '~/tmp/tmux-menus.log'
+set -g @menus_trigger 'C-m'
+set -g @menus_without_prefix 'false'
+set -g @menus_location_x 0
+set -g @menus_location_y 0
+set -g @menus_config_open_menu 'true'
+set -g @menus_items_main_menu 'true'
+set -g @menus_items_win_menu 'true'
+set -g @menus_items_opt_menu 'true'
+set -g @menus_debug 'true'
 
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
