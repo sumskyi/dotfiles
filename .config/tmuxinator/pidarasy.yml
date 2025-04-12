@@ -1,7 +1,7 @@
-# /home/vlad/.config/tmuxinator/companies.yml
+# /home/vlad/.config/tmuxinator/notetaking.yml
 
-name: companies
-root: ~/Code/companies
+name: pidarasy
+root: ~/Code/_OSS/pidarasy
 
 # Optional tmux socket
 # socket_name: foo
@@ -27,7 +27,7 @@ root: ~/Code/companies
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: rvm use 3.3.4
+# pre_window: rvm use 3.3.4
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -47,9 +47,8 @@ pre_window: rvm use 3.3.4
 # enable_pane_titles: true
 
 windows:
-  - rails:
-      layout: tiled
+  - angular:
+      layout: main-vertical
       panes:
-        - docker-compose down; docker-compose up
-        - bundle exec rails c
         - ~
+        - ng serve
