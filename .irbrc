@@ -8,12 +8,12 @@ def to_load
   %w[amazing_print coderay hirber pry pry-doc pry-rails pry-remote pry-theme sketches].freeze
 end
 
-def add_load_path(gem_path)
+def add_load_path(gem_path, gem)
   regexp = Regexp.new("(#{to_load.join('|')})")
 
   return if %w[. ..].include?(gem_path) # skip current and parent directory
 
-  new_el = "#{path}/gems/#{gem_path}/lib" # new element to add to $LOAD_PATH
+  new_el = "#{gem_path}/gems/#{gem}/lib" # new element to add to $LOAD_PATH
 
   return if $LOAD_PATH.any? { |el| el == new_el } # already loaded
 
@@ -22,12 +22,12 @@ end
 
 # add some gems to $LOAD_PATH which were isolated by bundler
 def fill_load_path
-  Gem.path.each do |path|
-    next unless File.directory?("#{path}/gems")
+  Gem.path.each do |gems_path|
+    next unless File.directory?("#{gems_path}/gems")
 
-    Dir.new("#{path}/gems")
-       .filter { |gem_path| %w[. ..].include?(gem_path) }
-       .each { |gem_path| add_load_path(gem_path) }
+    Dir.new("#{gems_path}/gems")
+       .reject { |gem_path| %w[. ..].include?(gem_path) }
+       .each { |gem| add_load_path(gems_path, gem) }
   end
 end
 
