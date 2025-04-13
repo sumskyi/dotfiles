@@ -5,7 +5,7 @@ using Rainbow
 
 # coderay is the dependency of pry
 def to_load
-  %w[amazing_print coderay hirber pry pry-doc pry-rails pry-remote pry-theme sketches].freeze
+  %w[amazing_print coderay hirber pry pry-coolline pry-doc pry-rails pry-remote pry-theme sketches].freeze
 end
 
 def add_load_path(gem_path, gem)
