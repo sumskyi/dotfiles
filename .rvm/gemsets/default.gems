@@ -1,9 +1,11 @@
+awesome_print
+coderay
+hirber
 pry
 pry-coolline
 pry-doc
+pry-rails
 pry-remote
 pry-theme
-hirb
-wirble
 sketches
-awesome_print
+tmuxinator
