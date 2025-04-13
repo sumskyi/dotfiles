@@ -1,49 +1,47 @@
+# frozen_string_literal: true
+
 require 'rainbow/refinement'
 using Rainbow
 
-# add some gems to $LOAD_PATH which were isolated by bundler
-#  - coderay is the dependency of pry
-def fill_load_path
-  to_load = %w[
-    amazing_print
-    coderay
-    hirber
-    pry
-    pry-doc
-    pry-rails
-    pry-remote
-    pry-theme
-    sketches
-  ]
+# coderay is the dependency of pry
+def to_load
+  %w[amazing_print coderay hirber pry pry-doc pry-rails pry-remote pry-theme sketches].freeze
+end
 
+def add_load_path(gem_path)
   regexp = Regexp.new("(#{to_load.join('|')})")
 
+  return if %w[. ..].include?(gem_path) # skip current and parent directory
+
+  new_el = "#{path}/gems/#{gem_path}/lib" # new element to add to $LOAD_PATH
+
+  return if $LOAD_PATH.any? { |el| el == new_el } # already loaded
+
+  $LOAD_PATH << new_el if new_el =~ regexp
+end
+
+# add some gems to $LOAD_PATH which were isolated by bundler
+def fill_load_path
   Gem.path.each do |path|
     next unless File.directory?("#{path}/gems")
 
-    Dir.new("#{path}/gems").each do |gem_path|
-      next if %w[. ..].any? { |d| gem_path == d } # skip current and parent directory
-
-      new_el = "#{path}/gems/#{gem_path}/lib" # new element to add to $LOAD_PATH
-
-      next if $LOAD_PATH.any? { |el| el == new_el } # already loaded
-
-      $LOAD_PATH << new_el if new_el =~ regexp
-    end
+    Dir.new("#{path}/gems")
+       .filter { |gem_path| %w[. ..].include?(gem_path) }
+       .each { |gem_path| add_load_path(gem_path) }
   end
 end
 
 # benchmark
-def time(times = 1)
+def time(count = 1, &block)
   require 'benchmark'
 
   nil.tap do
-    Benchmark.bm { |x| x.report { times.times { yield } } }
+    Benchmark.bm { |x| x.report { count.times { block.call } } }
   end
 end
 
 def irb?
-  caller(0...1).first.match? /.irbrc/
+  caller(0...1).first.match?(/.irbrc/)
 end
 
 # USAGE:
