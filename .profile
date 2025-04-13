@@ -12,7 +12,7 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+      . "$HOME/.bashrc"
     fi
 fi
 
@@ -26,15 +26,3 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-export JAVA_HOME="/usr/lib/jvm/java-18-openjdk-amd64"
-export PATH="$JAVA_HOME:$PATH"
-
-export FLYCTL_INSTALL="/home/vlad/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
-export EDITOR="vim"
