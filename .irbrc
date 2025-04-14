@@ -4,8 +4,9 @@ require 'rainbow/refinement'
 using Rainbow
 
 # coderay is the dependency of pry
+# method_source is the dependency of pry
 def to_load
-  %w[amazing_print coderay hirber pry pry-coolline pry-doc pry-rails pry-remote pry-theme sketches].freeze
+  %w[amazing_print coderay hirber method_source pry pry-coolline pry-doc pry-rails pry-remote pry-theme sketches].freeze
 end
 
 def add_load_path(gem_path, gem)
@@ -88,4 +89,10 @@ end
 #   sketch :abc - opens named sketch in editor
 load_gem 'sketches' do
   Sketches.config editor: 'gvim'
+end
+
+load_gem 'pry-rails'
+load_gem 'pry' do
+  # NOTE: after starting Pry nothing wont work
+  puts 'Starting Pry..'.green
 end
