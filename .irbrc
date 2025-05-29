@@ -81,8 +81,9 @@ end
 # +---+---+---+
 # 2 rows in set
 load_gem 'hirber' do
-  Hirb.enable
+  Hirb.enable({:width => 155, :height => 500})
   extend Hirb::Console
+
 end
 
 # usage:
