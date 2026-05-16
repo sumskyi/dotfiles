@@ -31,6 +31,22 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 101010 --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# picom is a compositor for X
+# https://github.com/yshui/picom
+# exec_always --no-startup-id picom -b
+# Бо зараз ; picom -b technically може виконуватись не так, як ти очікуєш залежно від parsing.
+# exec_always --no-startup-id killall picom; picom -b
+exec_always --no-startup-id sh -c "killall picom; picom -b"
+
+exec --no-startup-id tilda -c /usr/bin/fish
+exec --no-startup-id xsettingsd
+
+# VSCode (likely running under X11) fails to communicate with your existing Firefox instance (via D-Bus remote control) when using i3wm, causing Firefox to detect it as "not responding" and refuse new tabs.
+# exec --no-startup-id env MOZ_DBUS_REMOTE=1 firefox
+# exec dbus-run-session i3
+
+exec --no-startup-id env XDG_CURRENT_DESKTOP=Unity $HOME/.dropbox-dist/dropboxd
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -189,35 +205,117 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always xrandr --output eDP-1 --primary --right-of HDMI-1
+# exec_always xrandr --output eDP-1 --primary --right-of HDMI-1
 exec_always brightnessctl s 20%
+
+# =========================
+# GAPS
+# =========================
+
+gaps inner 4
+gaps outer 0
+
+smart_gaps on
+smart_borders no_gaps
+
+# =========================
+# WINDOW BORDERS
+# =========================
+
+default_border pixel 1
+# default_floating_border pixel 1
+default_floating_border normal
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+# bar {
+        # output primary
+        # # output HDMI-1
+
+        # tray_output primary
+        # # tray_output HDMI-1
+
+        # status_command i3status
+        # # status_command ~/.config/i3/i3status-wrapper.sh
+        # # status_command i3blocks
+        # # status_command bumblebee-status
+        # # status_command /home/vlad/.cargo/bin/i3status-rs /home/vlad/.config/i3status-rs/config.toml
+        # # font Misc Fixed 10
+        # colors {
+            # # separator "#2980B9"
+            # separator "#FF0000"
+        # }
+# }
+
+
+# =========================
+# BAR
+# =========================
 bar {
-        output primary
-        output HDMI-1
+    output primary
+    tray_output primary
 
-        tray_output primary
-        # tray_output HDMI-1
+    status_command i3status
 
-        status_command i3status
-        # font Misc Fixed 10
-        colors {
-            # separator "#2980B9"
-            separator "#FF0000"
-        }
+    position bottom
+
+    colors {
+        background #1e2329cc
+        statusline #d8dee9
+        separator  #5e81ac
+
+        focused_workspace  #88c0d0 #88c0d0 #1e2329
+        active_workspace   #2b303b #2b303b #d8dee9
+        inactive_workspace #1e2329 #1e2329 #7f8c99
+        urgent_workspace   #bf616a #bf616a #ffffff
+    }
 }
+# bar {
+    # output primary
+    # tray_output primary
+
+    # status_command i3status
+
+    # colors {
+        # background #1f2b36cc
+        # statusline #d8dee9
+        # separator  #5e81ac
+
+        # focused_workspace  #88c0d0 #88c0d0 #1f2b36
+        # active_workspace   #3b4252 #3b4252 #d8dee9
+        # inactive_workspace #1f2b36 #1f2b36 #7f8c99
+        # urgent_workspace   #bf616a #bf616a #ffffff
+    # }
+# }
+
+
+
+
 
 for_window [title="Astrill"] floating enable
 
 exec_always "setxkbmap -model pc104 -layout us,ua -variant ,, -option grp:alt_shift_toggle"
+# exec --no-startup-id setxkbmap -model pc104 -layout us,ua -variant ,, -option grp:alt_shift_toggle && sleep 1 && gxkb
+
 # exec --no-startup-id nitrogen --restore
-exec --no-startup-id nitrogen --set-auto ~/Pictures/Growing/PB135313.JPG  --head=0 && nitrogen --set-auto ~/Pictures/Growing/PB135315.JPG --head=1
+# exec --no-startup-id nitrogen --set-auto ~/Pictures/Growing/PB135313.JPG  --head=0 && nitrogen --set-auto ~/Pictures/Growing/PB135315.JPG --head=1
+exec --no-startup-id ~/.config/i3/set-wallpaper.sh
+
+# fixing COSMIC and X11 issues
+exec_always --no-startup-id /usr/libexec/xdg-desktop-portal
+exec_always --no-startup-id /usr/libexec/xdg-desktop-portal-gtk
+# exec_always --no-startup-id /usr/libexec/xdg-desktop-portal-gnome
+
+for_window [class="(?i)gtkdialog"] floating enable
+for_window [class="(?i)firefox" instance="^(?!Navigator$)"] floating enable
+for_window [class="(?i)firefox" window_role="Dialog"] floating enable
 
 # exec gxneur
-exec "gxkb"
-exec "i3lock -i /home/vlad/Pictures/wallpaper2.png"
+exec "gxkb" # -> setxkbmap ONLY 1 should be there
+# exec --no-startup-id sleep 2 && gxkb
+
+# exec "i3lock -i /home/vlad/Pictures/wallpaper2.png"
 
 # TODO: not working
 # assign [class="Terminal"] 2
